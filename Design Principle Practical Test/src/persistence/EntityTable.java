@@ -46,11 +46,17 @@ public class EntityTable implements Serializable {
     void fireEntityAdded(Integer key, Object value) {
         EntityEvent event = new EntityEvent(key, value);
         // Q3 add code here to notify observers of the event
+        for (EntityListener listener : listeners) {
+        	listener.entityAdded(event);
+        }
     }
    
     void fireEntityRestored() {
         EntityEvent event = new EntityEvent();
         // Q3 add code here to notify observers of the event
+        for (EntityListener listener : listeners) {
+        	listener.entityRestored(event);
+        }
     }
 }
 
