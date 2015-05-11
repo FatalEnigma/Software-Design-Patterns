@@ -2,7 +2,7 @@ package persistence;
 
 import java.io.*;
 
-public class EntityCSVSave {
+public class EntityCSVSave extends AbstractProcessorSave {
     
 	String getFileSuffix() {
         return ".csv";

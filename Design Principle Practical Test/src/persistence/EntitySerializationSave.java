@@ -2,7 +2,7 @@ package persistence;
 
 import java.io.*;
 
-public class EntitySerializationSave {
+public class EntitySerializationSave extends AbstractProcessorSave {
     
 	String getFileSuffix() {
         return ".ser";
@@ -22,7 +22,7 @@ public class EntitySerializationSave {
     }
  
     
-	EntityTable restore(EntityTable table) throws IOException                                             {
+	EntityTable restore(EntityTable table) throws IOException {
         File file = new File(getFileName(table) + getFileSuffix());
         FileInputStream fis = new FileInputStream(file);
         BufferedInputStream bis = new BufferedInputStream(fis);

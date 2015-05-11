@@ -9,4 +9,15 @@ public class ProcessorFactory {
     }
     
     private ProcessorFactory() {}
+    
+    public static Processor create (Type processorType, String size) {
+		if (processorType == Type.SINGLECORE) {
+			return new SingleCoreProcessor(size);
+		}
+		else if (processorType == Type.MULTICORE) {
+			return new MultiCoreProcessor(size);
+		}
+    	
+    	return null;
+    }
 }
