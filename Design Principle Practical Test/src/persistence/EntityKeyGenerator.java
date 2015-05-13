@@ -6,7 +6,7 @@ public enum EntityKeyGenerator {
 	
     private int nextKey;
     
-    public int getNextKey() {
+    public synchronized int getNextKey() {
         return ++nextKey;
     }
 }
