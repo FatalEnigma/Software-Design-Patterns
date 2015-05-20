@@ -6,16 +6,16 @@ public class CompositeRobot implements Robot {
 
     private Processor processor;
     private Robot.Colour colour;
-    private List<Robot> parts;
+    private List<Robot> robots;
     
-    public CompositeRobot(Processor p, List<Robot> parts) {
-    	this(p, Robot.Colour.UNPAINTED, parts);
+    public CompositeRobot(Processor p, List<Robot> robots) {
+    	this(p, Robot.Colour.UNPAINTED, robots);
 	}
 	
 	public CompositeRobot(Processor p, Robot.Colour colour, List<Robot> parts) {
 		this.processor = p;
 		this.colour = colour;
-		this.parts = parts;
+		this.robots = parts;
 	}
 
 	@Override
@@ -31,6 +31,18 @@ public class CompositeRobot implements Robot {
 	@Override
 	public void paint(Robot.Colour colour) {
 		this.colour = colour;
+	}
+	
+	public void addRobot(Robot robot) {
+		robots.add(robot);
+	}
+	
+	public void removeRobot(Robot robot) {
+		robots.remove(robot);
+	}
+	
+	public Robot[] getRobots() {
+		return robots.toArray(new Robot[robots.size()]);
 	}
 	
     @Override
